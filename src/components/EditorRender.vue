@@ -1,7 +1,7 @@
 <script setup lang="tsx">
 import { ref,render } from 'vue'
 
-defineProps<{ msg: string }>()
+
 
 const count = ref(0)
 
@@ -9,7 +9,7 @@ const count = ref(0)
 
 <template>
   
-    hellow world
+    <div>editor</div>
  
 </template>
 
