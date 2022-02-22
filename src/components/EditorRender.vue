@@ -1,15 +1,23 @@
 <script setup lang="tsx">
-import { ref,render } from 'vue'
+
+import { ref } from 'vue'
+// import INodeData from './../spc.d.ts'
 
 
 
-const count = ref(0)
+defineProps<{ currentNode: INodeData}>()
+
+// const count = ref(0)
 
 </script>
 
 <template>
   
-    <div>editor</div>
+    <component :is='currentNode.tag'>{{currentNode.slots[0]}}</component>
+   
+    <editor-render :node="child" v-for="(child,i) of currentNode.children" :key="i"></editor-render>
+    
+    
  
 </template>
 

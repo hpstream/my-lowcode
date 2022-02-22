@@ -1,4 +1,4 @@
-<script setup lang="tsx">
+<script setup  lang="tsx">
 import { ref,render } from 'vue'
 
 
