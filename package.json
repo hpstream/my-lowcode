@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "element-plus": "^2.0.2",
     "vue": "^3.2.25",
     "vuedraggable": "^2.24.3"
@@ -29,10 +30,12 @@
     "eslint-plugin-vue": "^8.5.0",
     "husky": ">=6",
     "lint-staged": ">=10",
+    "mockjs": "^1.1.0",
     "mrm": "^3.0.10",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
+    "vite-plugin-mock": "^2.9.6",
     "vue-tsc": "^0.29.8"
   },
   "lint-staged": {
