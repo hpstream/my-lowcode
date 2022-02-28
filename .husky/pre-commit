@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo '123'
-exit 0
+## exit ; 1 表示错误退出
