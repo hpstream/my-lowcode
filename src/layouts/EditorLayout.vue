@@ -1,20 +1,25 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 import LeftDrawer from "../components/LeftDrawer.vue";
 import EditorRender from "../components/EditorRender.vue";
 import RightDrawer from "../components/RightDrawer.vue";
-import schema from "./../components/baseComponets/LvButtom/schema";
-var currentNode:INodeData= schema;
-
+import { useDataStore } from "./../store/index";
+// import { storeToRefs } from "pinia";
+const dataStore = useDataStore();
 </script>
 
 <template>
-  
-  <left-drawer></left-drawer>
-  <editor-render :currentNode='currentNode'></editor-render>
-  <right-drawer :currentNode='currentNode'></right-drawer>
-  
- 
+  <div class="flex">
+    <div class="w-1/5">
+      <left-drawer />
+    </div>
+    <div class="w-3/5">
+      <editor-render :currentNode="dataStore.rootNode"></editor-render>
+    </div>
+    <div class="w-1/5">
+      <right-drawer :currentNode="dataStore.currentNode" />
+    </div>
+  </div>
 </template>
 
 <style scoped>

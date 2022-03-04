@@ -1,4 +1,4 @@
-<script setup lang="tsx">
+<script setup lang="ts">
 // import { ref } from "vue";
 
 defineProps<{ text: string; size: string; round: boolean }>();

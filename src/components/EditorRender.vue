@@ -1,26 +1,48 @@
-<script setup lang="tsx">
+<script lang="tsx">
+import { defineComponent, h, PropType, resolveComponent, VNode } from "vue";
+import { useDataStore } from "./../store/index";
+// const dataStore = useDataStore();
+// defineProps<{ currentNode: INodeData }>();
 
-import { ref } from 'vue'
-// import INodeData from './../spc.d.ts'
+function renderLoop(currentNode: INodeData): VNode {
+  var tag = currentNode.tag;
+  var children = currentNode.children;
+  var props = currentNode.renderConfig?.props;
+  var map: any = {};
+  for (let key in props) {
+    map[key] = props[key].value;
+    map["onClick"] = () => {
+      const dataStore = useDataStore();
+      dataStore.setCurrentData(currentNode);
+    };
+  }
+  return h(
+    resolveComponent(tag),
+    map,
+    children.map((child) => renderLoop(child))
+  );
+}
 
+export default defineComponent({
+  props: {
+    currentNode: {
+      type: Object as PropType<INodeData>,
+      required: true
+    }
+  },
 
-
-defineProps<{ currentNode: INodeData}>()
-
-// const count = ref(0)
-
+  render() {
+    // var tag = this.currentNode.tag;
+    // var children = this.currentNode.children;
+    // var props = this.currentNode.renderConfig?.props;
+    // // Object.keys(props);
+    // var map: any = {};
+    // for (let key in props) {
+    //   map[key] = props[key].value;
+    // }
+    return renderLoop(this.currentNode);
+  }
+});
 </script>
 
-<template>
-  
-    <component :is='currentNode.tag'>{{currentNode.slots[0]}}</component>
-   
-    <editor-render :node="child" v-for="(child,i) of currentNode.children" :key="i"></editor-render>
-    
-    
- 
-</template>
-
-<style scoped>
-
-</style>
+<style scoped></style>

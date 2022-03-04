@@ -26,3 +26,12 @@ declare interface INodeData {
   };
   slots: string[];
 }
+
+interface IPropItem {
+  label: string;
+  value: any;
+  editorType: string;
+  tabType?: "prop" | "style" | "data" | "event"; // 放在哪个编辑tab下
+  options?: any[];
+  noEdit?: boolean;
+}
