@@ -14,6 +14,7 @@ const dataStore = useDataStore();
       <left-drawer />
     </div>
     <div class="w-3/5">
+      {{ dataStore.data }}
       <editor-render :currentNode="dataStore.rootNode"></editor-render>
     </div>
     <div class="w-1/5">

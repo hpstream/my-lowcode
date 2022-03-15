@@ -22,6 +22,7 @@ export const useDataStore = defineStore({
   state: () => {
     return {
       count: 1,
+      data: {} as any,
       rootNode: tem,
       currentNode: tem
     };
@@ -29,6 +30,9 @@ export const useDataStore = defineStore({
   //计算属性
   getters: {},
   actions: {
+    setdata(key: string, value: any) {
+      this.data[key] = value;
+    },
     setCurrentData(node: INodeData) {
       this.currentNode = node;
     },
