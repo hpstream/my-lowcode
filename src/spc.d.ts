@@ -21,6 +21,7 @@ declare interface INodeData {
         editorType: "RadioEditor" | "BooleanEditor" | "TextEditor";
         options: string[];
         tabType: "prop";
+        noEdit: boolean;
       };
     };
   };
